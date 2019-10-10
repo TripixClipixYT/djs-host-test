@@ -7,7 +7,7 @@ module.exports = {
     config: {
         name: "urban",
         aliases: ["urb", "urbandictionary", "ud"],
-        category: "miscellaneous",
+        category: "nsfw",
         description: "gets an urban dictionary definition",
         usage: "<search|random> (query)",
         accessableby: "Members"

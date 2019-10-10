@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js")
-const { redlight } = require("../../colours.json")
+const { red_light } = require("../../colours.json")
 
 module.exports= {
     config: {
@@ -31,7 +31,7 @@ module.exports= {
     }
 
     let embed = new RichEmbed()
-    .setColor(redlight)
+    .setColor(red_light)
     .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
@@ -39,7 +39,7 @@ module.exports= {
     .addField("Reason:", reason)
     .addField("Date:", message.createdAt.toLocaleString())
     
-        let sChannel = message.guild.channels.find(c => c.name === "tut-modlogs")
+        let sChannel = message.guild.channels.find(c => c.name === "modmails")
         sChannel.send(embed)
     }
 }

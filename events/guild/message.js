@@ -1,5 +1,4 @@
-const { prefix } = require("../../botconfig.json");
-
+const { prefix, bottag } = require("../../botconfig.json");
 module.exports = async (bot, message) => { 
     if(message.author.bot || message.channel.type === "dm") return;
 
@@ -9,4 +8,5 @@ module.exports = async (bot, message) => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd))
     if(commandfile) commandfile.run(bot, message, args)
+    if(message.content == bottag) return message.channel.send("Hi, this event is in development!");
 }

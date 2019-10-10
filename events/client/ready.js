@@ -4,14 +4,13 @@ module.exports = async bot => {
 
     let statuses = [
         `${bot.guilds.size} servers!`,
-        "!help",
-        `over ${bot.users.size} users!`
+        `ts!help | over ${bot.users.size} users!`
     ]
 
     setInterval(function() {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         bot.user.setActivity(status, {type: "WATCHING"});
 
-    }, 5000)
+    }, 50000)
 
 }

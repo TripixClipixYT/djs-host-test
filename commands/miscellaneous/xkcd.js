@@ -7,7 +7,7 @@ module.exports = {
         name: "xkcd",
         description: "xkcd comics, get the latest or certain comic",
         usage: "<search|latest> (id)",
-        category: "miscellaneous",
+        category: "nsfw",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {

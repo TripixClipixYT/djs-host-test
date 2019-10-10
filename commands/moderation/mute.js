@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js")
-const { redlight } = require("../../colours.json");
+const { red_light } = require("../../colours.json");
 
 module.exports = {
     config: {
@@ -15,7 +15,7 @@ module.exports = {
 if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("You dont have permission to use this command.");
 
 if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to add roles!")
-
+      
 //define the reason and mutee
 let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
 if(!mutee) return message.channel.send("Please supply a user to be muted!");
@@ -49,13 +49,13 @@ if(!muterole) {
 //add role to the mentioned user and also send the user a dm explaing where and why they were muted
 mutee.addRole(muterole.id).then(() => {
     message.delete()
-    mutee.send(`Hello, you have been in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
+    mutee.send(`Hello, you have been muted in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
     message.channel.send(`${mutee.user.username} was successfully muted.`)
 })
 
 //send an embed to the modlogs channel
 let embed = new RichEmbed()
-    .setColor(redlight)
+    .setColor(red_light)
     .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
     .addField("Moderation:", "mute")
     .addField("Mutee:", mutee.user.username)
@@ -63,7 +63,7 @@ let embed = new RichEmbed()
     .addField("Reason:", reason)
     .addField("Date:", message.createdAt.toLocaleString())
 
-let sChannel = message.guild.channels.find(c => c.name === "tut-modlogs")
+let sChannel = message.guild.channels.find(c => c.name === "modmails")
 sChannel.send(embed)
     }
 }

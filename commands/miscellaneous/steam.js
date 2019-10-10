@@ -13,10 +13,10 @@ module.exports = {
         accessableby: "Members"
     },
     run: async (bot, message, args) => {
-        const token = "steamToken"; //I reset mine.
+        const token = "DE78639FC5194C69FB9C594650E7C2DA"; //I reset mine.
         if(!args[0]) return message.channel.send("Please provide an account name!");
         const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${token}&vanityurl=${args.join(" ")}`;
-
+      
         fetch(url).then(res => res.json()).then(body => {
             if(body.response.success === 42) return message.channel.send("I was unable to find a steam profile with that name");
 
